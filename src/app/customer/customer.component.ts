@@ -9,11 +9,19 @@ import { CustomerService } from '../shared/customer.service';
 export class CustomerComponent implements OnInit {
 
   constructor(public custService: CustomerService) { }
+  submitted: boolean;
+  formControls = this.custService.form.controls;
 
   ngOnInit() {
   }
 
   onSubmit(){
+    this.submitted = true;
+    if (this.custService.form.valid){
+      // TODO
+      this.submitted = false;
+    }
+
     // if(this.custService.form.get('$key').value == null){
     //   // insert
     // } else {
