@@ -20,11 +20,14 @@ export class CustomerComponent implements OnInit {
     this.submitted = true;
     if (this.custService.form.valid){
       if(this.custService.form.get('$key').value == null){
-          // insert
-          this.custService.insertCustomer(this.custService.form.value);
-          this.showSuccessMsg = true;
-          setTimeout(() => this.showSuccessMsg = false ,3000);
-        }
+        // insert
+        this.custService.insertCustomer(this.custService.form.value);
+        this.showSuccessMsg = true;
+        setTimeout(() => this.showSuccessMsg = false ,3000);
+      } else{
+        // update
+        this.custService.updateCustomer(this.custService.form.value);
+      }
       this.submitted = false;
       this.custService.form.reset();
     }
