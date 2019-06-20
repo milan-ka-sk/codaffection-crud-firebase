@@ -13,4 +13,12 @@ export class CustomerComponent implements OnInit {
   ngOnInit() {
   }
 
+  onSubmit(){
+    // if(this.custService.form.get('$key').value == null){
+    //   // insert
+    // } else {
+    //   // update
+    // }
+  }
+
 }
