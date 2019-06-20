@@ -8,7 +8,7 @@ import { CustomerService } from '../shared/customer.service';
 })
 export class CustomerListComponent implements OnInit {
 
-  constructor(private custService: CustomerService) { }
+  constructor(public custService: CustomerService) { }
   customerArray = [];
 
   ngOnInit() {

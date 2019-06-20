@@ -33,4 +33,8 @@ export class CustomerService {
     });
   }
 
+  populateForm(customer){
+    this.form.setValue(customer);
+  }
+
 }
