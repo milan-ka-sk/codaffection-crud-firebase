@@ -10,6 +10,7 @@ export class CustomerComponent implements OnInit {
 
   constructor(public custService: CustomerService) { }
   submitted: boolean;
+  showSuccessMsg: boolean;
   formControls = this.custService.form.controls;
 
   ngOnInit() {
@@ -18,8 +19,14 @@ export class CustomerComponent implements OnInit {
   onSubmit(){
     this.submitted = true;
     if (this.custService.form.valid){
-      // TODO
+      if(this.custService.form.get('$key').value == null){
+          // insert
+          this.custService.insertCustomer(this.custService.form.value);
+          this.showSuccessMsg = true;
+          setTimeout(() => this.showSuccessMsg = false ,3000);
+        }
       this.submitted = false;
+      this.custService.form.reset();
     }
 
     // if(this.custService.form.get('$key').value == null){
